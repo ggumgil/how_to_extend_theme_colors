@@ -1,4 +1,3 @@
-
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 
@@ -51,13 +50,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    CustomColors orangeColor = Theme.of(context).extension<CustomColors>()!;
+
     return Scaffold(
         appBar: AppBar(
           elevation: 2,
@@ -67,14 +67,15 @@ class Home extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Container(
+                color: orangeColor.onOrange,
+              ),
               const Text(
                 'Update with your UI',
               ),
             ],
           ),
         ),
-        floatingActionButton:
-            FloatingActionButton(onPressed: () => {}, tooltip: 'Increment'));
+        floatingActionButton: FloatingActionButton(onPressed: () => {}, tooltip: 'Increment'));
   }
-}    
-
+}
